@@ -29,9 +29,13 @@ class Hand:
         return self.get_value() == 21
     
     def display(self):
-        print(f'''{"Dealer's" if self.dealer == True else "Your"}  ''')
+        print(f'''{"Dealer's" if self.dealer == True else "Your"} hand:''')
         for card in self.cards:
             print(card)
+        
+        if not self.dealer:
+            print("Value:", self.get_value())
+        print("\n")
 
 
 class Card:
@@ -84,5 +88,4 @@ deck1 = Deck()
 deck1.shuffle()
 hand = Hand()
 hand.add_card(deck1.deal(2))
-print(hand.cards[0], hand.cards[1])
-hand.get_value()
+hand.display()
