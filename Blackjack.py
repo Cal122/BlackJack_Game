@@ -34,8 +34,8 @@ class Hand:
             print(card)
         
         if not self.dealer:
-            print("Value:", self.get_value())
-        print("\n")
+            print(f"Value:", self.get_value())
+        print()
 
 
 class Card:
@@ -86,6 +86,7 @@ class Deck:
 
 deck1 = Deck()
 deck1.shuffle()
+
 hand = Hand()
 hand.add_card(deck1.deal(2))
 hand.display()
