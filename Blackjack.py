@@ -31,7 +31,7 @@ class Hand:
     def display(self, show_all_dealer_cards=False):
         print(f'''{"Dealer's" if self.dealer == True else "Your"} hand:''')
         for index, card in enumerate(self.cards):
-            if index == 0 and self.dealer and not show_all_dealer_cards:
+            if index == 0 and self.dealer and not show_all_dealer_cards and not self.is_blackjack():
                 print("Hidden")
             else:
                 print(card)
@@ -87,9 +87,18 @@ class Deck:
                 cards_dealt.append(card)
         return cards_dealt
 
-deck1 = Deck()
-deck1.shuffle()
+class Game:
 
-hand = Hand()
-hand.add_card(deck1.deal(2))
-hand.display()
+    def play(self):
+        game_number = 0
+        games_to_play = 0
+        
+        while games_to_play <= 0:
+            try:
+                games_to_play = int(input("How many games would you like to play?: "))
+            except:
+                print("You must enter a valid number.")
+
+
+g = Game()
+g.play()
