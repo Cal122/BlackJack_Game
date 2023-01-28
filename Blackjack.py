@@ -134,6 +134,10 @@ class Game:
             elif dealer_hand.is_blackjack() == 21:
                 print("Dealer has a blackjack! You lose!")
                 return True
+        else:
+            if game_over:
+                if player_hand.get_value() > dealer_hand.get_value():
+                    print("You win!")
             return False
 
 
