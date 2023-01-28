@@ -98,6 +98,43 @@ class Game:
                 games_to_play = int(input("How many games would you like to play?: "))
             except:
                 print("You must enter a valid number.")
+    
+        while game_number < games_to_play:
+            game_number += 1
+
+            deck = Deck()
+            deck.shuffle 
+
+            player_hand = Hand()
+            dealer_hand = Hand(dealer=True)
+            for num in range(0,2):
+                player_hand.add_card(deck.deal(1))
+                dealer_hand.add_card(deck.deal(1))
+            
+            print()
+            print("*" * 30)
+            print(f"Game {game_number} of {games_to_play}")
+            print("*" * 30)
+            player_hand.display()
+            dealer_hand.display()
+        
+    def check_winner(self, player_hand, dealer_hand, game_over=False):
+        if not game_over:
+            if player_hand.get_value() > 21:
+                print("You busted! Dealer wins!")
+            elif dealer_hand.get_value() > 21:
+                print("Dealer busted! You win!")
+                return True
+            elif dealer_hand.is_blackjack() and dealer_hand.is_blackjack():
+                print("You both have a blackjack! It's a tie!")
+                return True
+            elif player_hand.is_blackjack() == 21:
+                print("You have a blackjack! You win!")
+                return True
+            elif dealer_hand.is_blackjack() == 21:
+                print("Dealer has a blackjack! You lose!")
+                return True
+            return False
 
 
 g = Game()
