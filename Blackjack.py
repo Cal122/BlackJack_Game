@@ -128,10 +128,10 @@ class Game:
             elif dealer_hand.is_blackjack() and dealer_hand.is_blackjack():
                 print("You both have a blackjack! It's a tie!")
                 return True
-            elif player_hand.is_blackjack() == 21:
+            elif player_hand.is_blackjack():
                 print("You have a blackjack! You win!")
                 return True
-            elif dealer_hand.is_blackjack() == 21:
+            elif dealer_hand.is_blackjack():
                 print("Dealer has a blackjack! You lose!")
                 return True
         else:
